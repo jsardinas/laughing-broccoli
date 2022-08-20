@@ -1,11 +1,17 @@
 import React from "react";
 import Ad from "./Ad";
 
-const adInfo = {
-    title: 'Ad 1'
+const adInfo = [{
+    title: 'title1',
+    username: 'username1'
+},
+{
+    title: 'title2',
+    username: 'username2'
 }
+]
 
-export default function Ad() {
+export default function Classifieds() {
     return (
         <div>
             {adInfo.map((ad) => (

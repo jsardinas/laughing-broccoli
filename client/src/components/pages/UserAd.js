@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Edit() {
+export default function UserAd() {
     return (
         <>
             <h2>Edit</h2>
