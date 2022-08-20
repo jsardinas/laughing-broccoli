@@ -153,4 +153,7 @@ Fulfilling all three of the following requirements to turn your app into a PWA w
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved. 
+
+https://theclassifieds.herokuapp.com/
+
