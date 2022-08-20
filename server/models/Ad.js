@@ -1,27 +1,20 @@
 const { Schema, model } = require('mongoose');
 
-const UserSchema = new Schema({
+const AdSchema = new Schema({
     username: {
         type: String,
         required: true
-
     },
-    password: {
+    title: {
         type: String,
         required: true
-
     },
-    email: {
+    description: {
         type: String,
         required: true,
-        match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Must use a valid email address'],
-
-    }
-    ads_id: {
-        type: [],
     }
 });
 
-const User = model('User', UserSchema);
+const Ad = model('Ad', AdSchema);
 
-module.exports = User;
+module.exports = Ad;
