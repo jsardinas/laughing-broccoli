@@ -1,0 +1,24 @@
+{
+  "name": "laughing-broccoli",
+  "version": "1.0.0",
+  "description": "e-classifies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsardinas/laughing-broccoli.git"
+  },
+  "keywords": [
+    "ads",
+    "clasiffies",
+    "e-classifies"
+  ],
+  "author": "jschmiett monaco-vin surfinsofia cblake506 jsardinas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsardinas/laughing-broccoli/issues"
+  },
+  "homepage": "https://github.com/jsardinas/laughing-broccoli#readme"
+}
