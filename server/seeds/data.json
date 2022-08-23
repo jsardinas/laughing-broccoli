@@ -1,0 +1,49 @@
+{
+    "userData":[
+    {
+      "username": "roundRock",
+      "password": "12345",
+      "email": "pebbles@gmail.com",
+      "ads_id": []
+    },
+    {
+      "username": "georgeTown",
+      "password": "54321",
+      "email": "icecream@gmail.com",
+      "ads_id": []
+    },
+    {
+      "username": "pflugerville",
+      "password": "12354",
+      "email": "walking@gmail.com",
+      "ads_id": []
+    },
+    {
+      "username": "wellsBranch",
+      "password": "21345",
+      "email": "austinfc@gmail.com",
+      "ads_id": []
+    }
+  ],
+"adsData":[
+    {
+        "username": "roundRock",
+        "title": "Baseball Bat",
+        "description": "Wooden baseball bat"
+    },
+    {
+        "username": "georgeTown",
+        "title": "Canoe",
+        "description": "Aluminum canoe"
+    },
+    {
+        "username": "pflugerville",
+        "title": "Bowling Ball",
+        "description": "Eight pound bowling ball red"
+    },
+    {
+        "username": "wellsBranch",
+        "title": "Basketball Jersey",
+        "description": "Michael Jordan #23"
+    }
+]}
