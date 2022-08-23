@@ -19,6 +19,7 @@ const typeDefs = gql`
   type Query {
     user: [User]
     ads(_id: String): [Ad]
+    all_ads: [Ad]
   }
 `;
 
