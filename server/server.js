@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-//initialize port
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
 
-// is port listening?
-app.listen(port, () => console.log(`Listening on port ${port}`));
-
-
-create a GET route
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-}); 
-=======
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -50,8 +36,8 @@ const startApolloServer = async (typeDefs, resolvers) => {
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
+};
 
 // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
->>>>>>> acd365f027d5f9254fed9f0c849f5d49c735e09c
+startApolloServer(typeDefs, resolvers);
+
