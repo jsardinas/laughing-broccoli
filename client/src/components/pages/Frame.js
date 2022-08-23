@@ -2,7 +2,7 @@
 import React from 'react';
 import Home from './Home';
 import Classifieds from './Classifieds';
-import UserAd from './UserAd';
+import UserAdEdit from './UserAdEdit';
 
 export default function Frame({ currentPage }) {
 
@@ -15,7 +15,7 @@ export default function Frame({ currentPage }) {
       return <Classifieds />;
     }
     if (currentPage === 'UserAd') {
-      return <UserAd />;
+      return <UserAdEdit />;
     }
     return <Home />;
   };

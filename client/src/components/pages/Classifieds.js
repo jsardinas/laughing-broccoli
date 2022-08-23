@@ -1,5 +1,5 @@
 import React from "react";
-import Ad from "./Ad";
+import ClassifiedsAdCard from "./ClassifiedsAdCard";
 
 const adInfo = [{
     title: 'title1',
@@ -15,7 +15,7 @@ export default function Classifieds() {
     return (
         <div>
             {adInfo.map((ad) => (
-                <Ad name={ad.title} />
+                <ClassifiedsAdCard name={ad.title} />
             ))}
 
         </div>

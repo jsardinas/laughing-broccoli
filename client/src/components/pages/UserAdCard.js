@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Ad(props) {
+export default function UserAdCard(props) {
     return (
         <div className="container">
             <div className="card">
