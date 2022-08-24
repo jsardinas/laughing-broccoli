@@ -1,4 +1,3 @@
-
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -29,15 +28,14 @@ app.get('/', (req, res) => {
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
-
+  
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-};
-
+  };
+  
 // Call the async function to start the server
-startApolloServer(typeDefs, resolvers);
-
+  startApolloServer(typeDefs, resolvers);
