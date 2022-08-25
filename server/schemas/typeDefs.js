@@ -21,6 +21,10 @@ const typeDefs = gql`
     ads(_id: String): [Ad]
     all_ads: [Ad]
   }
+
+  type Mutation {
+    addAd($userId: String!, $username: String!, $title: String!, description: String!): Ad
+  }
 `;
 
 module.exports = typeDefs;

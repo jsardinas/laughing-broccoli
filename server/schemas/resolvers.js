@@ -13,6 +13,27 @@ const resolvers = {
       return Ad.find({});
     }
   },
+  
+  Mutation:{
+    addAd: async (parent, { userId, username, title, description }) => {
+      return User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: { 
+            ads_id: {
+              username: username,
+              title: title,
+              description: description
+            }
+          },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+  }
 };
 
 module.exports = resolvers;
