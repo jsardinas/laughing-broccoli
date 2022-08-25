@@ -1,21 +1,21 @@
 import React from "react";
+import { useQuery } from '@apollo/client';
+import { QUERY_AD } from '../../utils/queries';
 import ClassifiedsAdCard from "./ClassifiedsAdCard";
 
-const adInfo = [{
-    title: 'title1',
-    username: 'username1'
-},
-{
-    title: 'title2',
-    username: 'username2'
-}
-]
-
 export default function Classifieds() {
+    const { loading, error, data } = useQuery(QUERY_AD);
+    console.log('loading:', loading);
+    console.log('error:', error);
+    console.log('data:', data);
+    const adInfo = data?.ads || [];
+
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
     return (
         <div>
             {adInfo.map((ad) => (
-                <ClassifiedsAdCard name={ad.title} />
+                <ClassifiedsAdCard title={ad.title} description={ad.description} username={ad.username} />
             ))}
 
         </div>
