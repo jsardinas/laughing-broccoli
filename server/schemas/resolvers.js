@@ -13,6 +13,25 @@ const resolvers = {
       return Ad.find({});
     }
   },
+  
+  Mutation:{
+    addAd: async (parent, { userId, username, title, description }) => {
+      const newAd = await Ad.insertMany([{
+        username: username,
+        title: title,
+        description: description
+      }]);
+      console.log("the newAd._id is" + newAd[newAd.length - 1]._id)
+      return await User.findOneAndUpdate(
+        { _id: userId },
+        { $addToSet: { ads_id: newAd[newAd.length - 1]._id } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+  }
 };
 
 module.exports = resolvers;

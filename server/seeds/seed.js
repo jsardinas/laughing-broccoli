@@ -6,6 +6,7 @@ console.log('adsData:', adsData);
 
 db.once("open", async () => {
   await User.deleteMany({});
+  await Ad.deleteMany({});
 
   const users = await User.insertMany(userData);
   const ads = await Ad.insertMany(adsData);
