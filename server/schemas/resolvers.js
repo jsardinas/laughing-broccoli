@@ -21,14 +21,10 @@ const resolvers = {
         title: title,
         description: description
       }]);
-      
+      console.log("the newAd._id is" + newAd[newAd.length - 1]._id)
       return await User.findOneAndUpdate(
         { _id: userId },
-        {
-          $addToSet: { 
-            ads_id: newAd._id
-          },
-        },
+        { $addToSet: { ads_id: newAd[newAd.length - 1]._id } },
         {
           new: true,
           runValidators: true,
