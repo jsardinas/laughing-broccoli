@@ -31,7 +31,8 @@ const resolvers = {
         }
       );
     },
-    removeAd: async (parent, {adId}) => {
+
+    removeAd: async (parent, { adId }) => {
       const removed = await Ad.findOneAndDelete({ _id: adId });
 
       await User.findOneAndUpdate(
@@ -43,6 +44,28 @@ const resolvers = {
       ); 
       
       return removed;
+    },
+
+    updateAdTitle: async (parent, { adId, title }) => {
+      return await Ad.findOneAndUpdate(
+        { _id: adId },
+        { $set: { title: title } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
+    },
+
+    updateAdDescription: async (parent, { adId, description }) => {
+      return await Ad.findOneAndUpdate(
+        { _id: adId },
+        { $set: { description: description } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
     }
   }
 };
