@@ -32,7 +32,17 @@ const resolvers = {
       );
     },
     removeAd: async (parent, {adId}) => {
-      return await Ad.findOneAndDelete({ _id: adId })
+      const removed = await Ad.findOneAndDelete({ _id: adId });
+
+      await User.findOneAndUpdate(
+        { username: removed.username },
+        { $pull: { ads_id: removed._id } },
+        {
+          runValidators: true,
+        }
+      ); 
+      
+      return removed;
     }
   }
 };
