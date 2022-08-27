@@ -5,7 +5,7 @@ import './App.css';
 
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('LogIn');
+  const [currentPage, setCurrentPage] = useState('Home');
   console.log("Hello World");
   return (
     <>
