@@ -76,7 +76,7 @@ function Form() {
                     />}
                 <input
                     value={userName}
-                    name="userName"
+                    name="userNames"
                     onChange={handleInputChange}
                     type="text"
                     placeholder="username"
