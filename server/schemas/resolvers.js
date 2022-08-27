@@ -21,7 +21,7 @@ const resolvers = {
         title: title,
         description: description
       }]);
-      console.log("the newAd._id is" + newAd[newAd.length - 1]._id)
+      
       return await User.findOneAndUpdate(
         { _id: userId },
         { $addToSet: { ads_id: newAd[newAd.length - 1]._id } },
@@ -31,6 +31,42 @@ const resolvers = {
         }
       );
     },
+
+    removeAd: async (parent, { adId }) => {
+      const removed = await Ad.findOneAndDelete({ _id: adId });
+
+      await User.findOneAndUpdate(
+        { username: removed.username },
+        { $pull: { ads_id: removed._id } },
+        {
+          runValidators: true,
+        }
+      ); 
+      
+      return removed;
+    },
+
+    updateAdTitle: async (parent, { adId, title }) => {
+      return await Ad.findOneAndUpdate(
+        { _id: adId },
+        { $set: { title: title } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
+    },
+
+    updateAdDescription: async (parent, { adId, description }) => {
+      return await Ad.findOneAndUpdate(
+        { _id: adId },
+        { $set: { description: description } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
+    }
   }
 };
 
