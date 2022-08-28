@@ -1,4 +1,5 @@
 const { User, Ad } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -66,6 +67,12 @@ const resolvers = {
           runValidators: true,
         }
       )
+    },
+
+    addUser: async (parent, {username, email, password}) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
     }
   }
 };
