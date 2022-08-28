@@ -1,17 +1,5 @@
 import React, { useState } from "react";
-import UserAdCard from "./UserAdCard";
 
-const adInfo = [{
-    name: 'title1',
-    username: 'username1',
-    location: 'location1'
-},
-{
-    name: 'title2',
-    username: 'username2',
-    location: 'location2'
-}
-]
 
 export default function Form() {
     //Create state variables for the fields in the form
@@ -107,11 +95,7 @@ export default function Form() {
                     </div>
                 )}
             </div>
-            <div>
-                {adInfo.map((ad) => (
-                    <UserAdCard name={ad.title} />
-                ))}
-            </div>
+           
         </>
 
 
