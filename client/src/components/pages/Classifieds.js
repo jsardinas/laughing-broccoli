@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
-import { QUERY_AD } from '../../utils/queries';
+import { QUERY_AD } from '../utils/queries';
 import ClassifiedsAdCard from "./ClassifiedsAdCard";
 
 export default function Classifieds() {
