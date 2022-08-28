@@ -13,7 +13,7 @@ export default function Frame({ currentPage }) {
     if (currentPage === 'Classifieds') {
       return <Classifieds />;
     }
-    if (currentPage === 'UserAd') {
+    if (currentPage === 'Profile') {
       return <UserAdEdit />;
     }
     return <LogIn />;
