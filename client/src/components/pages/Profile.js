@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-export default function Form() {
+export default function Profile() {
     //Create state variables for the fields in the form
     //We are also setting their initial values to an empty string
     const [title, setTitle] = useState('');
