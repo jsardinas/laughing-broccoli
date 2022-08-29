@@ -14,6 +14,7 @@ const typeDefs = gql`
     username: String!
     title: String!
     description: String!
+    date: String!
   }
 
   type Query {
