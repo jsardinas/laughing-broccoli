@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useMutation } from '@apollo/client';
 
+import { ADD_ADVERTISEMENT } from '../utils/mutations'
 
 export default function Form() {
     //Create state variables for the fields in the form
@@ -7,6 +9,8 @@ export default function Form() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const [addAd, { error }] = useMutation(ADD_ADVERTISEMENT);
 
     const handleInputChange = (e) => {
         //Getting the value and name of the input which triggered the change
@@ -24,7 +28,7 @@ export default function Form() {
         }
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         //preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
         //We also want to check that name and message are empty.
@@ -39,6 +43,21 @@ export default function Form() {
             setErrorMessage('Please enter a description');
             return;
         }
+        
+        try {
+            const { data } = await addAd({
+              variables: {
+                userId: '630c429b935d381365f6ff21',
+                username: 'javier',
+                title: title,
+                description: description
+              },
+            });
+            console.log('AddAd data:', data);
+          } catch (err) {
+            console.error(err);
+          }
+
         alert(`${title} has been posted to Classifieds!`)
 
         //To clear out form after user is done using it

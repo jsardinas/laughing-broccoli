@@ -1,7 +1,7 @@
 import React from 'react';
 import Classifieds from './Classifieds';
-import UserAdEdit from './UserAdEdit';
 import LogIn from './LogIn'
+import Profile from './Profile'
 
 export default function Frame({ currentPage }) {
 
@@ -14,7 +14,7 @@ export default function Frame({ currentPage }) {
       return <Classifieds />;
     }
     if (currentPage === 'Profile') {
-      return <UserAdEdit />;
+      return <Profile />;
     }
     return <LogIn />;
   };

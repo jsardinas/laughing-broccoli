@@ -1,17 +1,16 @@
 import { gql } from '@apollo/client';
 
 export const ADD_ADVERTISEMENT = gql`
-  mutation addAd($userId: String!, $username: String!, $title: String!, description: String!) {
-    addAd($userId: String!, $username: String!, $title: String!, description: String!) {
+  mutation addAd($userId: ID!, $username: String!, $title: String!, $description: String!) {
+    addAd(userId: $userId, username: $username, title: $title, description: $description) {
       _id
-      username
-      all_ads
     }
   }
 `
+
 export const REMOVE_ADVERTISEMENT = gql`
   mutation removeAd($adId: String!) {
-    removeAd($$adId: String!) {
+    removeAd(addId: $adId) {
       _id
       username
       title
