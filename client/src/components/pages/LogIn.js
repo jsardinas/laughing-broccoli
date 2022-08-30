@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "../../utils/axios";
-import { useNavigate } from "react-router-dom";
 
 // Here we import a helper function that will check if the email is valid
 import { checkPassword, validateEmail } from "../../utils/helpers";
 
 function Form() {
-  // const navigate = useNavigate();
+
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [email, setEmail] = useState("");
@@ -63,14 +62,13 @@ function Form() {
       })
       .then((res) => {
         console.log(res);
-        if (res.status == 200) {
-          if (request == "/login") {
+        if (res.status === 200) {
+          if (request === "/login") {
             localStorage.setItem("token", res.data.token);
-            window.history.pushState({}, "", "/abc");
-            // navigate("/abt");
+            window.location.assign('/');
             // alert("user login successful");
           }
-          if (request == "/register")
+          if (request === "/register")
             alert("user account created successfully");
         }
       })
