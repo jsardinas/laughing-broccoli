@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import axios from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
+import {
+  Button,
+  FormWrapper,
+  Input,
+  LoginDiv,
+  Span,
+} from "../../styled/styled";
 
 // Here we import a helper function that will check if the email is valid
 import { checkPassword, validateEmail } from "../../utils/helpers";
@@ -66,6 +73,7 @@ function Form() {
         if (res.status == 200) {
           if (request == "/login") {
             localStorage.setItem("token", res.data.token);
+            console.log(res.data);
             window.history.pushState({}, "", "/abc");
             // navigate("/abt");
             // alert("user login successful");
@@ -88,17 +96,11 @@ function Form() {
   };
 
   return (
-    <div>
+    <LoginDiv>
       <p>Hello {userName}</p>
-      <button type="button" onClick={() => showLogInForm(true)}>
-        Log in
-      </button>
-      <button type="button" onClick={() => showLogInForm(false)}>
-        Create account
-      </button>
-      <form className="form">
+      <FormWrapper className="form">
         {isLogInForm === true ? null : (
-          <input
+          <Input
             value={email}
             name="email"
             onChange={handleInputChange}
@@ -106,31 +108,48 @@ function Form() {
             placeholder="email"
           />
         )}
-        <input
+        <Input
           value={userName}
           name="userName"
           onChange={handleInputChange}
           type="text"
           placeholder="username"
         />
-        <input
+        <Input
           value={password}
           name="password"
           onChange={handleInputChange}
           type="password"
-          placeholder="Password"
+          placeholder="password"
         />
 
-        <button type="button" onClick={handleFormSubmit}>
+        <Button type="button" onClick={handleFormSubmit}>
           Submit
-        </button>
-      </form>
+        </Button>
+      </FormWrapper>
+      {isLogInForm === true ? (
+        <p>
+          Don't have an account?{" "}
+          <Span onClick={() => showLogInForm(false)}>Register Here</Span>
+        </p>
+      ) : (
+        <p>
+          Already have an account?{" "}
+          <Span onClick={() => showLogInForm(true)}>Login Here</Span>
+        </p>
+      )}
+      {/* <Button type="button" onClick={() => showLogInForm(true)}>
+        Log in
+      </Button>
+      <Button type="button" onClick={() => showLogInForm(false)}>
+        Create account
+      </Button> */}
       {errorMessage && (
         <div>
           <p className="error-text">{errorMessage}</p>
         </div>
       )}
-    </div>
+    </LoginDiv>
   );
 }
 
