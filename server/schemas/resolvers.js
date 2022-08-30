@@ -16,7 +16,7 @@ const resolvers = {
   },
   
   Mutation:{
-    addAd: async (parent, { userId, username, title, description }) => {
+    addAd: async (parent, { username, title, description }) => {
       try{
           const newAd = await Ad.insertMany([{
           username: username,
@@ -25,7 +25,7 @@ const resolvers = {
         }]);
         
         await User.findOneAndUpdate(
-          { _id: userId },
+          { username: username },
           { $addToSet: { ads_id: newAd[newAd.length - 1]._id } },
           {
             new: true,

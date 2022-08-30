@@ -29,7 +29,7 @@ const typeDefs = gql`
   }
   
   type Mutation {
-    addAd(userId: ID!, username: String!, title: String!, description: String!): Ad
+    addAd(username: String!, title: String!, description: String!): Ad
     removeAd(adId: ID!): Ad
     updateAdTitle(adId: ID!, title: String!): Ad
     updateAdDescription(adId: ID!, description: String!): Ad
