@@ -30,9 +30,13 @@
   "homepage": "https://github.com/jsardinas/laughing-broccoli#readme",
   "dependencies": {
     "apollo-server-express": "^3.10.1",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "react-router-dom": "^6.3.0"
   }
 }

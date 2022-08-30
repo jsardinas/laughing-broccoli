@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
-import { QUERY_AD } from '../../utils/queries';
+import { QUERY_AD } from '../utils/queries';
 import ClassifiedsAdCard from "./ClassifiedsAdCard";
 
 export default function Classifieds() {
@@ -15,7 +15,7 @@ export default function Classifieds() {
     return (
         <div>
             {adInfo.map((ad) => (
-                <ClassifiedsAdCard title={ad.title} description={ad.description} username={ad.username} />
+                <ClassifiedsAdCard title={ad.title} description={ad.description} username={ad.username} date={ad.date}/>
             ))}
 
         </div>
