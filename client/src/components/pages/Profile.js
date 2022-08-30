@@ -5,18 +5,18 @@ import ClassifiedsAdCard from "./ClassifiedsAdCard";
 import UserAdEdit from './UserAdEdit';
 import Auth from '../../utils/auth';
 
-export default function Profile() {
+export default function Profile({username}) {
     const { loading, error, data } = useQuery(QUERY_AD);
-    console.log('loading:', loading);
-    console.log('error:', error);
-    console.log('data:', data);
+    console.log('username:', username);
+
     const adInfo = data?.ads || [];
 
-    if (loading) return 'Loading...';
-    if (error) return `Error! ${error.message}`;
-    if (Auth.loggedIn())
+    
+    if (Auth.loggedIn()){
+        if (loading) return 'Loading...';
+        if (error) return `Error! ${error.message}`;
         return (<>
-            <UserAdEdit/>
+            <UserAdEdit username={username}/>
             <div>
                 {adInfo.map((ad) => (
                     <ClassifiedsAdCard title={ad.title} description={ad.description} username={ad.username} date={ad.date}/>
@@ -24,10 +24,10 @@ export default function Profile() {
             </div>
             </>
         );
+    }
     return (
         <p>
-          You need to be logged in. Please{' '}
-          <a href="/login">login</a>
+          You need to be logged in.
         </p>
     );
 }

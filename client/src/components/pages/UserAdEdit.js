@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_ADVERTISEMENT } from '../utils/mutations'
 
-export default function Form() {
+export default function Form({username}) {
     //Create state variables for the fields in the form
     //We are also setting their initial values to an empty string
     const [title, setTitle] = useState('');
@@ -47,8 +47,7 @@ export default function Form() {
         try {
             const { data } = await addAd({
               variables: {
-                userId: '630c429b935d381365f6ff21',
-                username: 'javier',
+                username: username,
                 title: title,
                 description: description
               },

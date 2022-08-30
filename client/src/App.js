@@ -5,8 +5,7 @@ import './App.css';
 
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('LogIn');
-  console.log("Hello World");
+  const [currentPage, setCurrentPage] = useState('Classifieds');
   return (
     <>
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />

@@ -1,5 +1,7 @@
 import decode from 'jwt-decode';
 
+const jwtToken = 'token';
+
 class AuthService {
   getProfile() {
     return decode(this.getToken());
@@ -16,7 +18,7 @@ class AuthService {
     const decoded = decode(token);
     // If the expiration time is less than the current time (in seconds), the token is expired and we return `true`
     if (decoded.exp && decoded.exp < Date.now() / 1000) {
-      localStorage.removeItem('token');
+      localStorage.removeItem(jwtToken);
       return true;
     }
     // If token hasn't passed its expiration time, return `false`
@@ -24,16 +26,16 @@ class AuthService {
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem(jwtToken);
   }
 
   login(idToken) {
-    localStorage.setItem('token', idToken);
+    localStorage.setItem(jwtToken, idToken);
     window.location.assign('/');
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem(jwtToken);
     window.location.reload();
   }
 }
