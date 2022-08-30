@@ -8,6 +8,8 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const { User } = require("./models");
 
+const secret = 'vincent';
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
@@ -49,7 +51,7 @@ app.post("/login", async (req, res) => {
   if (users.length == 0) {
     return res.status(400).json({ error: "username or password incorrect" });
   }
-  const token = jwt.sign({ username: req.body.username }, "vincent");
+  const token = jwt.sign({ username: req.body.username }, secret);
   return res.status(200).json({
     token,
   });
