@@ -8,7 +8,7 @@ export default function Classifieds() {
     console.log('loading:', loading);
     console.log('error:', error);
     console.log('data:', data);
-    const adInfo = data?.ads || [];
+    const adInfo = data?.all_ads || [];
 
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
