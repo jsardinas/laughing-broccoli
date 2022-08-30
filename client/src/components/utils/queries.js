@@ -7,6 +7,7 @@ export const QUERY_AD = gql`
       title
       description
       username
+      date
     }
   }
 `;
