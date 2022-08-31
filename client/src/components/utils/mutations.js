@@ -10,7 +10,7 @@ export const ADD_ADVERTISEMENT = gql`
 
 export const REMOVE_ADVERTISEMENT = gql`
   mutation removeAd($adId: String!) {
-    removeAd(addId: $adId) {
+    removeAd(adId: $adId) {
       _id
       username
       title

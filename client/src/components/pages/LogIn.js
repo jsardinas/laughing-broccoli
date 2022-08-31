@@ -74,6 +74,7 @@ console.log('render login');
         if (res.status === 200) {
           if (request === "/login") {
             localStorage.setItem("token", res.data.token);
+            window.location.assign('/');
             setCurrentPage('UserAd');
             setUserState(userName);
             // alert("user login successful");

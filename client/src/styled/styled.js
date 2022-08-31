@@ -77,7 +77,7 @@ export const LoginDiv = styled.div`
   align-items: center;
   background-color: #222831;
   color: #eeeeee;
-  border-radius: 10px;
+  // border-radius: 10px;
 `;
 
 export const FormWrapper = styled.form`
