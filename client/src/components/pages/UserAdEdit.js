@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
-
 import { ADD_ADVERTISEMENT } from '../utils/mutations'
+import {
+  Button,
+  LoginDiv,
+  TextArea,
+  FormWrapper,
+  Input,
+} from "../../styled/styled";
 
 export default function Form({username}) {
     //Create state variables for the fields in the form
@@ -17,12 +23,16 @@ export default function Form({username}) {
         const { target } = e;
         const inputType = target.name;
         const inputValue = target.value;
+													   
 
         //Based on the input type, we set the state of either name, email, or message
+																		
+						 
         if (inputType === 'title') {
             setTitle(inputValue);
         }
 
+																				 
         if (inputType === 'description') {
             setDescription(inputValue)
         }
@@ -38,6 +48,7 @@ export default function Form({username}) {
             setErrorMessage('Please enter your post title');
             return;
         }
+															 
 
         if (!description) {
             setErrorMessage('Please enter a description');
@@ -62,7 +73,6 @@ export default function Form({username}) {
         //To clear out form after user is done using it
         setTitle('');
         setDescription('');
-
     };
 
     const titleInputCheck = (e) => {
@@ -86,9 +96,8 @@ export default function Form({username}) {
     };
 
     return (
-        <>
-            <div>
-                <form className='form'>
+        <LoginDiv>
+                <FormWrapper className='form'>
                     <input
                         value={title}
                         name="title"
@@ -105,18 +114,14 @@ export default function Form({username}) {
                         placeholder='Description'
                         onBlur={descriptionInputCheck}
                     />
-                    <button type='button' onClick={handleFormSubmit}>Submit</button>
-                </form>
+                    <Button type='button' onClick={handleFormSubmit}>Submit</Button>
+                </FormWrapper>
+				 
                 {errorMessage && (
                     <div>
                         <p className='error-text'>{errorMessage}</p>
                     </div>
                 )}
-            </div>
-           
-        </>
-
-
+        </LoginDiv>
     );
-
 }
