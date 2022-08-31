@@ -5,7 +5,7 @@ import "./App.css";
 import { Main } from "./styled/styled";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("Classifieds");
+  const [currentPage, setCurrentPage] = useState({page:"Classifieds", arg:null});
   return (
     <>
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
