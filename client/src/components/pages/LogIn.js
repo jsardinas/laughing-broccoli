@@ -14,7 +14,7 @@ import {
 import { checkPassword, validateEmail } from "../../utils/helpers";
 
 function Form({setUserState, setCurrentPage}) {
-console.log('setCurrentPage:', setCurrentPage);
+console.log('render login');
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [email, setEmail] = useState("");

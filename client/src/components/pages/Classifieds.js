@@ -3,7 +3,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_AD } from '../utils/queries';
 import ClassifiedsAdCard from "./ClassifiedsAdCard";
 
-export default function Classifieds() {
+export default function Classifieds({handlePageChange}) {
+    console.log('render Classifieds');
     const { loading, error, data } = useQuery(QUERY_AD);
     console.log('loading:', loading);
     console.log('error:', error);
@@ -15,7 +16,7 @@ export default function Classifieds() {
     return (
         <div>
             {adInfo.map((ad) => (
-                <ClassifiedsAdCard title={ad.title} description={ad.description} username={ad.username} date={ad.date}/>
+                <ClassifiedsAdCard key={ad._id} id={ad._id} title={ad.title} description={ad.description} username={ad.username} date={ad.date} handlePageChange={handlePageChange}/>
             ))}
 
         </div>

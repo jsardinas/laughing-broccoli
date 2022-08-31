@@ -6,6 +6,7 @@ import UserAdEdit from './UserAdEdit';
 import Auth from '../../utils/auth';
 
 export default function Profile({username}) {
+    console.log('render profile')
     const { loading, error, data } = useQuery(QUERY_MY_ADS,  {
         variables: { username: username },
       });

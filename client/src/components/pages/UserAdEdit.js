@@ -10,6 +10,7 @@ import {
 } from "../../styled/styled";
 
 export default function Form({username}) {
+    console.log('render useradedit')
     //Create state variables for the fields in the form
     //We are also setting their initial values to an empty string
     const [title, setTitle] = useState('');
