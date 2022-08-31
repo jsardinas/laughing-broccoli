@@ -1,4 +1,5 @@
 const { User, Ad } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -15,21 +16,27 @@ const resolvers = {
   },
   
   Mutation:{
-    addAd: async (parent, { userId, username, title, description }) => {
-      const newAd = await Ad.insertMany([{
-        username: username,
-        title: title,
-        description: description
-      }]);
-      
-      return await User.findOneAndUpdate(
-        { _id: userId },
-        { $addToSet: { ads_id: newAd[newAd.length - 1]._id } },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    addAd: async (parent, { username, title, description }) => {
+      try{
+          const newAd = await Ad.insertMany([{
+          username: username,
+          title: title,
+          description: description
+        }]);
+        
+        await User.findOneAndUpdate(
+          { username: username },
+          { $addToSet: { ads_id: newAd[newAd.length - 1]._id } },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+        return newAd[0];
+      }
+      catch(e){
+        console.log(e);
+      }
     },
 
     removeAd: async (parent, { adId }) => {
@@ -66,6 +73,12 @@ const resolvers = {
           runValidators: true,
         }
       )
+    },
+
+    addUser: async (parent, {username, email, password}) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
     }
   }
 };

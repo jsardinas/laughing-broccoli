@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import UserAdCard from "./UserAdCard";
+import { useMutation } from '@apollo/client';
 
-const adInfo = [{
-    name: 'title1',
-    username: 'username1',
-    location: 'location1'
-},
-{
-    name: 'title2',
-    username: 'username2',
-    location: 'location2'
-}
-]
+import { ADD_ADVERTISEMENT } from '../utils/mutations'
 
-export default function Form() {
+export default function Form({username}) {
     //Create state variables for the fields in the form
     //We are also setting their initial values to an empty string
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const [addAd, { error }] = useMutation(ADD_ADVERTISEMENT);
 
     const handleInputChange = (e) => {
         //Getting the value and name of the input which triggered the change
@@ -36,7 +28,7 @@ export default function Form() {
         }
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         //preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
         //We also want to check that name and message are empty.
@@ -51,6 +43,20 @@ export default function Form() {
             setErrorMessage('Please enter a description');
             return;
         }
+        
+        try {
+            const { data } = await addAd({
+              variables: {
+                username: username,
+                title: title,
+                description: description
+              },
+            });
+            console.log('AddAd data:', data);
+          } catch (err) {
+            console.error(err);
+          }
+
         alert(`${title} has been posted to Classifieds!`)
 
         //To clear out form after user is done using it
@@ -107,11 +113,7 @@ export default function Form() {
                     </div>
                 )}
             </div>
-            <div>
-                {adInfo.map((ad) => (
-                    <UserAdCard name={ad.title} />
-                ))}
-            </div>
+           
         </>
 
 

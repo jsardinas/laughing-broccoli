@@ -6,7 +6,6 @@ import { Main } from "./styled/styled";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("LogIn");
-  console.log("Hello World");
   return (
     <>
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />

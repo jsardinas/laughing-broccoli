@@ -14,6 +14,7 @@ const typeDefs = gql`
     username: String!
     title: String!
     description: String!
+    date: String!
   }
 
   type Query {
@@ -21,12 +22,18 @@ const typeDefs = gql`
     ads(_id: String): [Ad]
     all_ads: [Ad]
   }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
   
   type Mutation {
-    addAd(userId: ID!, username: String!, title: String!, description: String!): User
+    addAd(username: String!, title: String!, description: String!): Ad
     removeAd(adId: ID!): Ad
     updateAdTitle(adId: ID!, title: String!): Ad
     updateAdDescription(adId: ID!, description: String!): Ad
+    addUser(username: String!, email: String!, password: String!): Auth
   }
   `;
   
