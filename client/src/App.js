@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import Frame from "./components/pages/Frame";
 import Header from "./components/Header";
-import './App.css';
-
+import "./App.css";
+import { Main } from "./styled/styled";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('Classifieds');
+  const [currentPage, setCurrentPage] = useState("LogIn");
   return (
     <>
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <Frame currentPage={currentPage} />
+      <Main>
+        <Frame currentPage={currentPage} />
+      </Main>
     </>
   );
 }

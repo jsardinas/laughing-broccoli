@@ -1,11 +1,14 @@
 import React from "react";
-import NavTabs from './NavTabs';
+import styled from "styled-components";
+import NavTabs from "./NavTabs";
+import { HeaderWrapper } from "../styled/styled";
 
 export default function Header({ currentPage, setCurrentPage }) {
-    const handlePageChange = (page) => setCurrentPage(page);
-    return (
-        <div>
-            <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-        </div>
-    )
+  const handlePageChange = (page) => setCurrentPage(page);
+  return (
+    <HeaderWrapper>
+      <h1>TheClassifieds</h1>
+      <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
+    </HeaderWrapper>
+  );
 }
