@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "../../utils/axios";
+
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -9,11 +10,12 @@ import {
   Span,
 } from "../../styled/styled";
 
+
 // Here we import a helper function that will check if the email is valid
 import { checkPassword, validateEmail } from "../../utils/helpers";
 
-function Form() {
-  // const navigate = useNavigate();
+function Form({setUserState}) {
+
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [email, setEmail] = useState("");
@@ -70,26 +72,24 @@ function Form() {
       })
       .then((res) => {
         console.log(res);
-        if (res.status == 200) {
-          if (request == "/login") {
+        if (res.status === 200) {
+          if (request === "/login") {
             localStorage.setItem("token", res.data.token);
-            console.log(res.data);
             window.history.pushState({}, "", "/abc");
-            // navigate("/abt");
+            setUserState(userName);
             // alert("user login successful");
           }
-          if (request == "/register")
+          if (request === "/register")
             alert("user account created successfully");
         }
       })
       .catch((error) => {
-        alert(error.response.data.error);
+        alert(error);
       });
-    // } catch (error) {
-    //   alert(error.response.data.error);
-    // }
+    
+      await res;
+      
 
-    // If everything goes according to plan, we want to clear out the input after a successful registration.
     setUserName("");
     setPassword("");
     setEmail("");
