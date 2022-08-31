@@ -65,7 +65,7 @@ export const Page = styled.div`
   display: flex;
   justify-content: center;
   background-color: ${(props) => props.backgroundColor};
-  align-items: center;
+ 
   width: 90%;
 `;
 

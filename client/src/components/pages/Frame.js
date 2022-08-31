@@ -22,7 +22,7 @@ console.log('render frame: ', currentPage);
     if (currentPage.page === "Classifieds") {
       return <Classifieds handlePageChange={setCurrentPage}/>;
     }
-    if (currentPage.page === 'Profile') {
+    if (currentPage.page === 'UserAd') {
       return <Profile username={username}/>;
     }
     if (currentPage.page === 'SingleAd') {
