@@ -69,6 +69,24 @@ export const Page = styled.div`
   width: 90%;
 `;
 
+export const ProfilePage = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) => props.backgroundColor};
+  flex-direction: column;
+ 
+  width: 90%;
+`;
+
+export const AdList = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) => props.backgroundColor};
+  flex-direction: column;
+ 
+  width: 90%;
+`;
+
 export const LoginDiv = styled.div`
   display: flex;
   width: 40%;

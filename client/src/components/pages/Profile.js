@@ -4,6 +4,7 @@ import { QUERY_MY_ADS } from '../utils/queries';
 import ClassifiedsAdCard from "./ClassifiedsAdCard";
 import UserAdEdit from './UserAdEdit';
 import Auth from '../../utils/auth';
+import {ProfilePage, AdList} from '../../styled/styled'
 
 export default function Profile({username}) {
     console.log('render profile: ', username)
@@ -21,14 +22,14 @@ export default function Profile({username}) {
     if (Auth.loggedIn()){
         if (loading) return 'Loading...';
         if (error) return `Error! ${error.message}`;
-        return (<>
+        return (<ProfilePage>
             <UserAdEdit username={username}/>
             <div>
                 {adInfo.map((ad) => (
                     <ClassifiedsAdCard key={ad._id} title={ad.title} description={ad.description} username={ad.username} date={ad.date}/>
                 ))}
             </div>
-            </>
+            </ProfilePage>
         );
     }
     return (

@@ -97,7 +97,7 @@ export default function Form({username}) {
     };
 
     return (
-        <LoginDiv>
+        <div>
                 <FormWrapper className='form'>
                     <input
                         value={title}
@@ -123,6 +123,6 @@ export default function Form({username}) {
                         <p className='error-text'>{errorMessage}</p>
                     </div>
                 )}
-        </LoginDiv>
+        </div>
     );
 }
