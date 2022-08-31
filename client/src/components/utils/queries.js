@@ -25,8 +25,8 @@ export const QUERY_SINGLE_AD = gql`
 `;
 
 export const QUERY_MY_ADS = gql`
-  query myads($username: String!) {
-    myads(username: $username) {
+  query myads($username: String, $token: String) {
+    myads(username: $username, token: $token) {
       _id
       title
       description

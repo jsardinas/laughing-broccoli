@@ -7,8 +7,10 @@ import Auth from '../../utils/auth';
 
 export default function Profile({username}) {
     console.log('render profile: ', username)
+    const token = Auth.getToken();
+    console.log('token:', token);
     const { loading, error, data } = useQuery(QUERY_MY_ADS,  {
-        variables: { username: username },
+        variables: { username: username, token: token },
       });
     console.log(data);
     console.log('username:', username);
@@ -23,7 +25,7 @@ export default function Profile({username}) {
             <UserAdEdit username={username}/>
             <div>
                 {adInfo.map((ad) => (
-                    <ClassifiedsAdCard title={ad.title} description={ad.description} username={ad.username} date={ad.date}/>
+                    <ClassifiedsAdCard key={ad._id} title={ad.title} description={ad.description} username={ad.username} date={ad.date}/>
                 ))}
             </div>
             </>

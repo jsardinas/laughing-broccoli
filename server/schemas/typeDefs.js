@@ -21,7 +21,7 @@ const typeDefs = gql`
     user: [User]
     ads(adId: ID!): Ad
     all_ads: [Ad]
-    myads(username: String!): [Ad]
+    myads(username: String, token: String): [Ad]
   }
 
   type Auth {

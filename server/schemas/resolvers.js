@@ -1,6 +1,5 @@
-const { AuthenticationError } = require('apollo-server-express');
 const { User, Ad } = require('../models');
-const { signToken } = require('../utils/auth');
+const { signToken, getUser } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -17,9 +16,12 @@ const resolvers = {
       return Ad.find({});
     },
 
-    myads: async (parent, {username}) => {
+    myads: async (parent, {username, token}) => {
       console.log('username:', username);
-      return Ad.find({ username: username });
+      console.log('token:', token);
+      const user = getUser(token);
+      console.log('username:', user);
+      return Ad.find({ username: user });
     },
   },
   
