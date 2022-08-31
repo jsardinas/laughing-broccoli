@@ -6,10 +6,8 @@ export default function ClassifiedsAd({id, title, description, username, date, h
         <div className="container">
             <div className="card">
                 <div className="card-body">
-                    <A href="#" onClick={() => handlePageChange({page:"SingleAd", arg:{id}})}><h1>{title}</h1></A>
-                    <h2>{description}</h2>
-                    <h3>{username}</h3>
-                    <h4>{date}</h4>
+                    <h1><A href="#" onClick={() => handlePageChange({page:"SingleAd", arg:{id}})}>{title}</A></h1>
+                    <h4>{`posted by ${username} on ${date}`}</h4>
                 </div>
             </div>
         </div >
