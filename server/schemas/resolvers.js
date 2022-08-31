@@ -1,3 +1,4 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { User, Ad } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -6,13 +7,20 @@ const resolvers = {
     user: async () => {
       return User.find({}).populate('ads_id');
     },
-    ads: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Ad.find(params);
+
+    ads: async (parent, { adId }) => {
+      console.log(adId);
+      return Ad.findOne({_id: adId});
     },
+
     all_ads: async () => {
       return Ad.find({});
-    }
+    },
+
+    myads: async (parent, {username}) => {
+      console.log('username:', username);
+      return Ad.find({ username: username });
+    },
   },
   
   Mutation:{

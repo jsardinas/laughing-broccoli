@@ -1,15 +1,18 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
-import { QUERY_AD } from '../utils/queries';
+import { QUERY_MY_ADS } from '../utils/queries';
 import ClassifiedsAdCard from "./ClassifiedsAdCard";
 import UserAdEdit from './UserAdEdit';
 import Auth from '../../utils/auth';
 
 export default function Profile({username}) {
-    const { loading, error, data } = useQuery(QUERY_AD);
+    const { loading, error, data } = useQuery(QUERY_MY_ADS,  {
+        variables: { username: username },
+      });
+    console.log(data);
     console.log('username:', username);
 
-    const adInfo = data?.ads || [];
+    const adInfo = data?.myads || [];
 
     
     if (Auth.loggedIn()){

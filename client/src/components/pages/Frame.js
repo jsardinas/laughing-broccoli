@@ -5,28 +5,28 @@ import Profile from './Profile'
 
 import { Page } from "../../styled/styled";
 
-export default function Frame({ currentPage }) {
+
+export default function Frame({ currentPage, setCurrentPage }) {
+console.log('Frame:', setCurrentPage);
+
   const [username, setUsername] = useState(null);
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
-    if (currentPage === "LogIn") {
-      return <LogIn setUserState={setUsername}/>;
+    if (currentPage === 'LogIn') {
+      return <LogIn setUserState={setUsername} setCurrentPage={setCurrentPage}/>;
     }
     if (currentPage === "Classifieds") {
       return <Classifieds />;
     }
     if (currentPage === 'Profile') {
-      console.log(username);
+      console.log('Frame.username:', username);
       return <Profile username={username}/>;
     }
-    return <LogIn setUserState={setUsername}/>;
+    return <LogIn setUserState={setUsername} setCurrentPage={setCurrentPage}/>;
   };
   
   return (
     <Page>
-      {/* We are passing the currentPage from state and the function to update it */}
-      {/* Here we are calling the renderPage method which will return a component  */}
-      <p>Hello {username}</p>
       {renderPage()}
     </Page>
   );

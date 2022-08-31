@@ -19,8 +19,9 @@ const typeDefs = gql`
 
   type Query {
     user: [User]
-    ads(_id: String): [Ad]
+    ads(adId: ID!): Ad
     all_ads: [Ad]
+    myads(username: String!): [Ad]
   }
 
   type Auth {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "../../utils/axios";
 
-import { useNavigate } from "react-router-dom";
 import {
   Button,
   FormWrapper,
@@ -14,8 +13,8 @@ import {
 // Here we import a helper function that will check if the email is valid
 import { checkPassword, validateEmail } from "../../utils/helpers";
 
-function Form({setUserState}) {
-
+function Form({setUserState, setCurrentPage}) {
+console.log('setCurrentPage:', setCurrentPage);
   // Create state variables for the fields in the form
   // We are also setting their initial values to an empty string
   const [email, setEmail] = useState("");
@@ -75,7 +74,7 @@ function Form({setUserState}) {
         if (res.status === 200) {
           if (request === "/login") {
             localStorage.setItem("token", res.data.token);
-            window.history.pushState({}, "", "/abc");
+            setCurrentPage('Profile');
             setUserState(userName);
             // alert("user login successful");
           }

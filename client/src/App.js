@@ -5,12 +5,12 @@ import "./App.css";
 import { Main } from "./styled/styled";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("LogIn");
+  const [currentPage, setCurrentPage] = useState("Classifieds");
   return (
     <>
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <Main>
-        <Frame currentPage={currentPage} />
+        <Frame currentPage={currentPage} setCurrentPage={setCurrentPage}/>
       </Main>
     </>
   );
