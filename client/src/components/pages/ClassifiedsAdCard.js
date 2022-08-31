@@ -2,7 +2,6 @@ import React from "react";
 import {A} from '../../styled/styled'
 
 export default function ClassifiedsAd({id, title, description, username, date, handlePageChange}) {
-    console.log('render classfiedadcard')
     return (
         <div className="container">
             <div className="card">
