@@ -15,14 +15,17 @@ import styled from "styled-components";
 // 	background: #eeeeee;
 // }
 export const Button = styled.button`
-  background-color: #0092ca;
+  height: 40px;
+  width: 150px;
+  background-color: #393e46;
   color: #eeeeee;
+  font-size: 15px;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
   margin: 5px;
   &:hover {
-    background-color: darkblue;
+    background-color: #0092ca;
   }
 `;
 
@@ -61,14 +64,14 @@ export const Main = styled.div`
 export const Page = styled.div`
   display: flex;
   justify-content: center;
+  background-color: ${(props) => props.backgroundColor};
   align-items: center;
-
-  width: 80%;
+  width: 90%;
 `;
 
 export const LoginDiv = styled.div`
   display: flex;
-  width: 50%;
+  width: 40%;
   height: 80%;
   flex-direction: column;
   align-items: center;
@@ -79,7 +82,7 @@ export const LoginDiv = styled.div`
 
 export const FormWrapper = styled.form`
   display: flex;
-  height: 200px;
+  height: 300px;
   flex-direction: column;
   align-items: center;
 `;
@@ -90,11 +93,27 @@ export const Input = styled.input`
   border-bottom: 2px solid #eeeeee;
   padding: 10px;
   margin: 10px 0;
+  outline: none;
+  color: #eeeeee;
+  font-size: 30px;
 `;
 
 export const Span = styled.span`
-  color: #0092ca;
+  color: #eeeeee;
+  font-size: 20px;
   &:hover {
-    color: darkblue;
+    color: #0092ca;
   }
+`;
+
+export const TextArea = styled.textarea`
+  background-color: transparent;
+  border: none;
+  border: 2px solid #eeeeee;
+  padding: 10px;
+  margin: 10px 0;
+  outline: none;
+  color: #eeeeee;
+  font-size: 20px;
+  resize: none;
 `;
