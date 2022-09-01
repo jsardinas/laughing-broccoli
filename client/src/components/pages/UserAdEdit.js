@@ -59,17 +59,18 @@ export default function Form({username}) {
         try {
             const { data } = await addAd({
               variables: {
-                username: username,
+                username: 'javier',
                 title: title,
                 description: description
               },
             });
             console.log('AddAd data:', data);
           } catch (err) {
-            console.error(err);
+            console.error('err:', err);
           }
 
-        alert(`${title} has been posted to Classifieds!`)
+        alert(`${title} has been posted to Classifieds!`);
+        //window.location.assign('/');
 
         //To clear out form after user is done using it
         setTitle('');
